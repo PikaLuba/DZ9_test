@@ -50,7 +50,7 @@ public class MyLinkedList<T> {
     //------ get
     public T get(int index) {
         if (head == null) {
-            throw new IndexOutOfBoundsException("List is empty");
+            throw new IndexOutOfBoundsException("Index " + index + " out of bounds for length " + size());
         }
 
         Node<T> search = head;

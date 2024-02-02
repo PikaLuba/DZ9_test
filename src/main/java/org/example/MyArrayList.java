@@ -34,6 +34,9 @@ public class MyArrayList<T> {
     }
 
     public T get(int i) {
+        if (data[i] == null) {
+            throw new IndexOutOfBoundsException("Index " + i + " out of bounds for length " + size());
+        }
         return (T) data[i];
     }
 
@@ -66,6 +69,9 @@ public class MyArrayList<T> {
     }
 
     public T remove(int ind) {
+        if (data[ind] == null) {
+            throw new IndexOutOfBoundsException("Index " + ind + " out of bounds for length " + size());
+        }
         Object o = null;
         if ((ind < data.length) && (index >= 0)) {
             o = get(ind);
