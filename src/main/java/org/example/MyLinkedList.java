@@ -92,6 +92,7 @@ public class MyLinkedList<T> {
     private boolean isElementIndex(int index) {
         return index >= 0 && index < size();
     }
+
     T unlink(Node<T> x) {
         // assert x != null;
         final T element = x.getValue();

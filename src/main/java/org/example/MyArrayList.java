@@ -33,10 +33,17 @@ public class MyArrayList<T> {
         index++;
     }
 
+    private void checkElementIndex(int index) {
+        if (!isElementIndex(index))
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size());
+    }
+
+    private boolean isElementIndex(int index) {
+        return index >= 0 && index < size();
+    }
+
     public T get(int i) {
-        if (data[i] == null) {
-            throw new IndexOutOfBoundsException("Index " + i + " out of bounds for length " + size());
-        }
+        checkElementIndex(i);
         return (T) data[i];
     }
 
@@ -69,15 +76,13 @@ public class MyArrayList<T> {
     }
 
     public T remove(int ind) {
-        if (data[ind] == null) {
-            throw new IndexOutOfBoundsException("Index " + ind + " out of bounds for length " + size());
-        }
+        checkElementIndex(ind);
         Object o = null;
         if ((ind < data.length) && (index >= 0)) {
-            o = get(ind);
-            shiftToLeft(ind);
+                o = get(ind);
+                shiftToLeft(ind);
         }
-        return (T) o;
+            return (T) o;
     }
 
     @Override
